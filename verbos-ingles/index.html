@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aprende Verbos en Inglés - Flashcards & Quiz</title>
+  <!-- Tipografía del sistema y Google Fonts para Comfortaa -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Barra de navegación fija -->
+  <header class="navbar-header">
+    <nav class="navbar" aria-label="Navegación principal">
+      <div class="logo">
+        <span>🇬🇧 VerboMaster</span>
+      </div>
+      <ul class="nav-links" id="navLinks">
+        <li><button class="nav-btn active" data-sec="todos">Todos (A–Z)</button></li>
+        <li><button class="nav-btn" data-sec="comun">Muy comunes</button></li>
+        <li><button class="nav-btn" data-sec="intermedio">Intermedio</button></li>
+        <li><button class="nav-btn" data-sec="pocoComun">Menos comunes</button></li>
+        <li><button class="nav-btn quiz-nav-btn" data-sec="quiz">🎯 Quiz</button></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Contenido Principal -->
+  <main class="main-container">
+
+    <!-- Sección de Cuadrícula de Tarjetas (A-Z, Muy comunes, Intermedio, Menos comunes) -->
+    <section id="sec-cards" class="app-section active">
+      <div class="search-bar-container">
+        <div class="search-box">
+          <input type="text" id="searchInput" placeholder="Buscar verbo en inglés o español..." aria-label="Buscar verbo">
+          <button id="clearSearchBtn" class="clear-btn" style="display: none;">✕</button>
+        </div>
+        <div class="stats-counter" id="statsCounter">Mostrando 154 verbos</div>
+      </div>
+
+      <!-- Grid donde se insertan las tarjetas dinámicamente -->
+      <div class="cards-grid" id="cardsGrid"></div>
+    </section>
+
+    <!-- Sección del Quiz -->
+    <section id="sec-quiz" class="app-section">
+      <!-- Pantalla de inicio del Quiz -->
+      <div id="quizStartCard" class="quiz-card">
+        <h2>🎯 Desafío de Verbos en Inglés</h2>
+        <p>Demuestra lo que has aprendido. Resolverás 10 preguntas aleatorias de entre los 154 verbos disponibles.</p>
+        <button id="startQuizBtn" class="btn-primary">¡Comenzar Quiz!</button>
+      </div>
+
+      <!-- Pantalla activa del Quiz -->
+      <div id="quizActiveCard" class="quiz-card" style="display: none;">
+        <div class="quiz-header">
+          <span id="quizQuestionCount">Pregunta 1 / 10</span>
+          <span id="quizScoreText">Puntaje: 0</span>
+        </div>
+        <div class="progress-bar-container">
+          <div class="progress-bar" id="quizProgressBar"></div>
+        </div>
+
+        <div class="quiz-question-box">
+          <p class="quiz-prompt" id="quizPrompt">¿Cuál es el pasado del verbo?</p>
+          <h3 class="quiz-target-word" id="quizTargetWord">speak</h3>
+        </div>
+
+        <div class="quiz-options-grid" id="quizOptionsGrid"></div>
+
+        <div class="quiz-feedback" id="quizFeedback" style="display: none;"></div>
+
+        <div class="quiz-actions">
+          <button id="nextQuestionBtn" class="btn-primary" style="display: none;">Siguiente Pregunta ➔</button>
+        </div>
+      </div>
+
+      <!-- Pantalla de resultados del Quiz -->
+      <div id="quizResultsCard" class="quiz-card" style="display: none;">
+        <div class="results-header">
+          <div class="results-badge" id="resultsBadge">🏆</div>
+          <h2>¡Quiz Completado!</h2>
+        </div>
+        
+        <div class="results-score-box">
+          <span class="score-number" id="finalScoreNumber">0 / 10</span>
+          <p class="score-message" id="finalScoreMessage">¡Buen trabajo!</p>
+        </div>
+
+        <button id="restartQuizBtn" class="btn-primary">Intentar de nuevo</button>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
